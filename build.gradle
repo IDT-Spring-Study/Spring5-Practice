@@ -1,0 +1,23 @@
+plugins {
+    id 'java'
+}
+
+group 'com.idt.study'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 11
+targetCompatibility = 11
+compileJava.options.encoding = "UTF-8"
+
+repositories {
+    mavenCentral()
+}
+0
+dependencies {
+    implementation 'org.springframework:spring-context:5.3.20'
+
+}
+
+wrapper {
+    gradleVersion = 7.4
+}
