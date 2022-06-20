@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="475ba1a3-d217-431c-a438-fc27ab952e06" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="475ba1a3-d217-431c-a438-fc27ab952e06" name="Changes" comment="feat: 브랜치 추가">
+      <change beforePath="$PROJECT_DIR$/src/main/java/chapter02/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/chapter02/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,8 +157,16 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1655215754220</updated>
-      <workItem from="1655720331476" duration="1962000" />
+      <workItem from="1655720331476" duration="2264000" />
     </task>
+    <task id="LOCAL-00001" summary="feat: 브랜치 추가">
+      <created>1655722398115</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1655722398115</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -179,5 +185,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="feat: 브랜치 추가" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 브랜치 추가" />
   </component>
 </project>

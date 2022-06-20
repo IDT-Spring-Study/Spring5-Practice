@@ -10,7 +10,7 @@ public class Main {
         Greeter greeter = ctx.getBean("greeter", Greeter.class);
 
         System.out.println(greeter.greet("스프링 챕터2"));
-
+        System.out.println("test");
         // 싱글톤 예제
         Greeter greeter1 = ctx.getBean("greeter", Greeter.class);
         Greeter greeter2 = ctx.getBean("greeter", Greeter.class);
