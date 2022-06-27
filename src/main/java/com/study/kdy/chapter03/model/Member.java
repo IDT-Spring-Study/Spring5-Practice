@@ -1,13 +1,10 @@
-package chapter03.model;
+package com.study.kdy.chapter03.model;
 
-import chapter03.exception.WrongIdPasswordException;
-import lombok.Getter;
-import lombok.Setter;
+
+import com.study.kdy.chapter03.exception.WrongIdPasswordException;
 
 import java.time.LocalDateTime;
 
-@Setter
-@Getter
 public class Member {
 
 	private Long id;
@@ -30,4 +27,19 @@ public class Member {
 		this.password = newPassword;
 	}
 
+	public Long getId() {
+		return id;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public LocalDateTime getRegisterDateTime() {
+		return registerDateTime;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
 }

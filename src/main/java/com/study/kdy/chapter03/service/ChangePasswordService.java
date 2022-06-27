@@ -1,8 +1,8 @@
 package com.study.kdy.chapter03.service;
 
+import com.study.kdy.chapter03.exception.MemberNotFoundException;
 import com.study.kdy.chapter03.model.Member;
 import com.study.kdy.chapter03.model.MemberDao;
-import com.study.main.chapter03.exception.MemberNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Optional;

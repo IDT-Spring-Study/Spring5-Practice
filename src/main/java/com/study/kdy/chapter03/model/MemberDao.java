@@ -1,4 +1,4 @@
-package chapter03.model;
+package com.study.kdy.chapter03.model;
 
 import java.util.Collection;
 import java.util.HashMap;

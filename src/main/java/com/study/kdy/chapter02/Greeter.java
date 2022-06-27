@@ -1,8 +1,5 @@
-package chapter02;
+package com.study.kdy.chapter02;
 
-import lombok.Setter;
-
-@Setter
 public class Greeter {
 
     private String format;
@@ -14,4 +11,9 @@ public class Greeter {
 //    public void setFormat(String format) {
 //        this.format = format;
 //    }
+
+
+    public void setFormat(String format) {
+        this.format = format;
+    }
 }

@@ -3,11 +3,11 @@ package com.study.kdy.chapter03;
 import com.study.kdy.chapter03.config.MemberComponent;
 import com.study.kdy.chapter03.dto.RegisterRequestDto;
 import com.study.kdy.chapter03.exception.DuplicateMemberException;
+import com.study.kdy.chapter03.exception.MemberNotFoundException;
 import com.study.kdy.chapter03.exception.WrongIdPasswordException;
 import com.study.kdy.chapter03.model.MemberDao;
 import com.study.kdy.chapter03.service.ChangePasswordService;
 import com.study.kdy.chapter03.service.MemberRegisterService;
-import com.study.main.chapter03.exception.MemberNotFoundException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -31,8 +31,8 @@ public class Chapter03Main {
         );
         if (memberRegisterService.memberDao == memberDao) {
             System.out.println("두 객체 동일!");
-            System.out.println("memberDao 주소: " + memberDao.toString());
-            System.out.println("memberRegisterService 주소: " + memberRegisterService.memberDao.toString());
+            System.out.println("memberDao 주소: " + memberDao);
+            System.out.println("memberRegisterService 주소: " + memberRegisterService.memberDao);
         }
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
