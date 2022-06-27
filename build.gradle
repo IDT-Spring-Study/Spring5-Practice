@@ -12,9 +12,12 @@ compileJava.options.encoding = "UTF-8"
 repositories {
     mavenCentral()
 }
-0
+
 dependencies {
     implementation 'org.springframework:spring-context:5.3.20'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
+    testImplementation group: 'org.assertj', name: 'assertj-core', version: '3.22.0'
 
 }
 
