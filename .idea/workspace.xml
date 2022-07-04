@@ -4,19 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="475ba1a3-d217-431c-a438-fc27ab952e06" name="Changes" comment="feat: 브랜치 추가">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/study/kts/chapter03/di02/config/AppCtx.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/study/kts/chapter03/di02/dao/MemberDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/study/kts/chapter03/di02/dto/RegisterRequestDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/study/kts/chapter03/di02/model/Member.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/study/kts/chapter03/di02/printer/MemberInfoPrinter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/study/kts/chapter03/di02/printer/MemberListPrinter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/study/kts/chapter03/di02/printer/MemberPrinter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/study/kts/chapter03/di02/service/MemberRegisterService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/kts/chapter03/di02/config/AppCtxTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/kts/chapter03/di02/printer/MemberListPrinterTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+    <list default="true" id="475ba1a3-d217-431c-a438-fc27ab952e06" name="Changes" comment="feat : 챕터 3 스프링 DI 6~10장 예제 코드 추가&#10;&#10;1. junit &amp; assertj 디펜던시 추가&#10;2. 스프링 생성자 및 세터 주입 예제 테스트코드 작성">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/study/kts/chapter04/[chapter04] 의존자동주입.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/study/kts/chapter04/printer/MemberInfoPrinter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/study/kts/chapter04/printer/MemberListPrinter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/study/kts/chapter04/printer/MemberListPrinterNotQualifier.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/study/kts/chapter04/Chapter04Test.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/kts/chapter03/di02/config/AppCtxTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/study/kts/chapter03/di02/config/AppCtxTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/kts/chapter03/di02/printer/MemberListPrinterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/study/kts/chapter03/di02/printer/MemberListPrinterTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,6 +49,13 @@
       </state>
     </system>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
@@ -80,8 +83,11 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/test/java" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
+    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -89,89 +95,82 @@
       <recent name="C:\Users\ajrwk\Desktop\스터디\Spring5-Practice\src\main\java\com\study" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.di02 in Spring5-Practice.test">
-    <configuration name="Chapter03Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.study.kdy.chapter03.Chapter03Main" />
-      <module name="Spring5-Practice.main" />
+  <component name="RunManager" selected="JUnit.Chapter04Test">
+    <configuration name="Chapter04Test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Spring5-Practice.test" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.study.kdy.chapter03.*" />
+          <option name="PATTERN" value="kts.chapter04.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="kts.chapter04" />
+      <option name="MAIN_CLASS_NAME" value="kts.chapter04.Chapter04Test" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Spring5-Practice [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="build" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="Spring5-Practice [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="clean" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="Tests in 'kts.chapter03.di02'" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;kts.chapter03.di02.*&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="di02 in Spring5-Practice.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="Chapter04Test.QualifierTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Spring5-Practice.test" />
-      <option name="TEST_OBJECT" value="directory" />
-      <dir value="$PROJECT_DIR$/src/test/java/kts/chapter03/di02" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="kts.chapter04.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="kts.chapter04" />
+      <option name="MAIN_CLASS_NAME" value="kts.chapter04.Chapter04Test" />
+      <option name="METHOD_NAME" value="QualifierTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Chapter04Test.autowiredTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Spring5-Practice.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="kts.chapter04.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="kts.chapter04" />
+      <option name="MAIN_CLASS_NAME" value="kts.chapter04.Chapter04Test" />
+      <option name="METHOD_NAME" value="autowiredTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="QualifierTest.QualifierTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Spring5-Practice.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="kts.chapter04.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="kts.chapter04" />
+      <option name="MAIN_CLASS_NAME" value="kts.chapter04.QualifierTest" />
+      <option name="METHOD_NAME" value="QualifierTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="QualifierTest.duplicatedBeanTypeDiTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Spring5-Practice.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="kts.chapter04.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="kts.chapter04" />
+      <option name="MAIN_CLASS_NAME" value="kts.chapter04.QualifierTest" />
+      <option name="METHOD_NAME" value="duplicatedBeanTypeDiTest" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -189,11 +188,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.di02 in Spring5-Practice.test" />
-        <item itemvalue="Application.Chapter03Main" />
-        <item itemvalue="Gradle.Tests in 'kts.chapter03.di02'" />
-        <item itemvalue="Gradle.Spring5-Practice [build]" />
-        <item itemvalue="Gradle.Spring5-Practice [clean]" />
+        <item itemvalue="JUnit.Chapter04Test" />
+        <item itemvalue="JUnit.Chapter04Test.autowiredTest" />
+        <item itemvalue="JUnit.Chapter04Test.QualifierTest" />
+        <item itemvalue="JUnit.QualifierTest.QualifierTest" />
+        <item itemvalue="JUnit.QualifierTest.duplicatedBeanTypeDiTest" />
       </list>
     </recent_temporary>
   </component>
@@ -206,6 +205,8 @@
       <option name="presentableId" value="Default" />
       <updated>1655215754220</updated>
       <workItem from="1655720331476" duration="2264000" />
+      <workItem from="1656587211729" duration="7000" />
+      <workItem from="1656844506535" duration="21475000" />
     </task>
     <task id="LOCAL-00001" summary="feat: 브랜치 추가">
       <created>1655722398115</created>

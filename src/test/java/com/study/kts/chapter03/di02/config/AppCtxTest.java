@@ -1,4 +1,4 @@
-package kts.chapter03.di02.config;
+package com.study.kts.chapter03.di02.config;
 
 import com.study.kts.chapter03.di02.config.AppCtx;
 import com.study.kts.chapter03.di02.service.MemberRegisterService;
