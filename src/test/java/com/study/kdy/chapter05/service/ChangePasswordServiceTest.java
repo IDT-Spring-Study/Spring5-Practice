@@ -17,7 +17,7 @@ public class ChangePasswordServiceTest {
     public void componentScan_Test() {
         ctx = new AnnotationConfigApplicationContext(AppCtx.class);
 
-        var changePasswordService = ctx.getBean("changePasswordService", ChangePasswordService.class);
+        var changePasswordService = ctx.getBean(ChangePasswordService.class);
         assertThat(changePasswordService).isNotNull();
         Assertions.assertThrows(MemberNotFoundException.class,
                 () -> changePasswordService.changePassword("test.email", "password1!", "password2@"));
