@@ -55,7 +55,7 @@
 |3|스프링 DI|2022.06.20|김동영|https://github.com/IDT-Spring-Study/Spring5-Practice/issues/1|
 |3|스프링 DI|2022.06.27|박회재|https://cuboid-expert-37b.notion.site/Spring5-d4c1683f9c8f4cf0b68792ab1f608b64|
 |4|의존 자동 주입|2022.07.04|홍승훈|https://www.notion.so/Chapter-4-631fa59be76a4c6cb918e40da7f9d77e|
-|5|컴포넌트 스캔|2022.07.11|TBD||
+|5|컴포넌트 스캔|2022.07.11|김태수|https://lollolzkk.tistory.com/113?category=0|
 |6|빈 라이프사이클과 범위|2022.07.18|TBD||
 |7|AOP 프로그래밍|2022.07.25|TBD||
 |8|DB 연동|2022.08.01|TBD|1~4/8장 발표|
