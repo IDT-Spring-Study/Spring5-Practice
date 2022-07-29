@@ -69,13 +69,79 @@ public class ExeTimeCalculatorTest {
 | 4   | Aspect    | 공통으로 적용될 기능                             | @Aspect 표기된 객체                                                                 |
 | 5   | weaving   | 공통 기능을 가지는 프록시 객체(@Aspect 객체) 가 생성되는 과정 | 비즈니스 객체 생성 <br/> &nbsp;&nbsp;&nbsp;-> Advice 적용 대상인 경우 해당 프록시 생성               |
 
+**스프링에서 구현가능한 Advice 종류**
+
+| 종류              | 설명                                             |
+|-----------------|------------------------------------------------|
+| @Before         | 대상 객체 메서드 호출 전 공통 기능 실행                        |
+| @AfterReturning | 대상 객체 메서드가 예외없이 실행된 후 공통 기능 실행                 |
+| @AfterThrowing  | 대상 객체 메서드 실행 중 예외 발생 시 공통기능 실행                 |
+| @After          | 대상 객체 메서드 실행 후 공통 기능 실행(예외 여부 상관없음)            |
+| @Around         | 대상 객체 메서드 실행 전/후/예외 발생 시 기능 실행(범용성이 좋아 주로 사용됨) |
 
 # 7.3 스프링 AOP 구현
-- 
+- 스프링 AOP는 아래와 같은 방식으로 구현된다.
+1. Aspect 클래스 작성 -> `@Aspect`
+2. 공통 기능이 적용될 PointCut 설정 -> `@PointCut(정규식 | AspectJ 표현식)`
+3. 공통 기능을 구현한 메서드에 Advice 설정 -> `@Around(@PointCut 적용된 메서드)`
 ```java
+@Aspect // 공통 기능 객체 설정
+public class ExeTimeAspect {
+    @Pointcut("execution(public * com.study.kdy.chapter07.service..*(..))") // 공통 기능 적용 범위 설정
+    private void publicTarget() {
+    }
 
+    @Around("publicTarget()") // 공통 기능 적용방식(Advice) 설정
+    public Object measure(ProceedingJoinPoint joinPoint) throws Throwable {
+        var start = System.nanoTime();
+        try {
+            return joinPoint.proceed();
+        } finally {
+            var finish = System.nanoTime();
+            var sig = joinPoint.getSignature();
+            System.out.printf("%s.%s(%s) 실행시간: %d ns\n", joinPoint.getTarget().getClass().getSimpleName(),
+                    sig.getName(), Arrays.toString(joinPoint.getArgs()), (finish - start));
+        }
+    }
+}
 ```
+```java
+@Configuration
+@EnableAspectJAutoProxy
+public class AspectAppCtx {
+    @Bean
+    public ExeTimeAspect exeTimeAspect() { // 공통 기능 bean 등록
+        return new ExeTimeAspect();
+    }
 
+    @Bean
+    public Calculator calculator() { // 대상 객체 bean 등록
+        return new RecCalculator();
+    }
+}
+```
+```java
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+@TestInstance(PER_CLASS)
+public class AspectAppCtxTest {
+    private AnnotationConfigApplicationContext aspectAppCtx;
+
+    @BeforeAll
+    public void setup() {
+        aspectAppCtx = new AnnotationConfigApplicationContext(AspectAppCtx.class);
+    }
+
+    @Order(1)
+    @Test
+    public void measureCalculateTime() {
+        var calculator = aspectAppCtx.getBean(Calculator.class);
+
+        var result = calculator.factorial(20); // Advice 대상 객체 메서드 실행
+        System.out.println("calc result: " + result);
+    }
+}
+```
+![@Aroud 적용 테스트](https://user-images.githubusercontent.com/43669379/181808251-bc9e5cad-5251-46eb-b1e1-c4af776c8147.png)
 # 7.4 프록시 생성 방식
 - 
 ```java
