@@ -143,7 +143,111 @@ public class AspectAppCtxTest {
 ```
 ![@Aroud 적용 테스트](https://user-images.githubusercontent.com/43669379/181808251-bc9e5cad-5251-46eb-b1e1-c4af776c8147.png)
 # 7.4 프록시 생성 방식
-- 
+- 빈 객체가 인터페이스를 상속받은 경우, 스프링 AOP는 기본적으로 인터페이스 객체로 프록시를 생성한다.
 ```java
-
+@Configuration
+@EnableAspectJAutoProxy
+public class AspectAppCtx {
+    /* 중략 */
+    @Bean
+    public RecCalculator calculator() { // 리턴타입을 RecCalulator 로 명시
+        return new RecCalculator();
+    }
+}
 ```
+```java
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+@TestInstance(PER_CLASS)
+public class AspectAppCtxTest {
+
+    private AnnotationConfigApplicationContext aspectAppCtx;
+
+    @BeforeAll
+    public void setup() {
+        aspectAppCtx = new AnnotationConfigApplicationContext(AspectAppCtx.class);
+    }
+
+    @Order(1)
+    @Test
+    public void measureCalculateTime() {
+        var calculator = aspectAppCtx.getBean("calculator", RecCalculator.class);
+
+        var result = calculator.factorial(20);
+        System.out.println("calc result: " + result);
+    }
+
+}
+```
+![AOP 인터페이스 프록시 예제](https://user-images.githubusercontent.com/43669379/182030088-1a294a61-319e-4c2d-bc20-64ee46624f42.png)
+
+- 인터페이스를 상속받은 클래스로 프록시를 생성하려는 경우, `proxyTargetClass = true` 로 설정하면 된다.
+
+### 7.4.1 execution 명시자 표현식
+- Aspect 를 적용할 위치를 지정하는 @Pointcut 에는 execution 명시자를 사용한다.  
+`execution(수식어패턴? 리턴타입패턴 클래스이름패턴?메서드이름패턴(파라미터패턴))`
+  1. 수식어
+    - public, protected 등 java 의 접근제어자
+    - 생략가능하며 스프링 AOP 는 public 메서드에만 Pointcut 을 설정할 수 있다.
+
+### 7.4.2 Advice 적용 순서
+- 동일한 대상 객체에 여러 Advice 를 적용시킬 수 있다.
+- 적용 순서는 스프링/자바 버전에 따라 다르게 적용된다. 아래 예제는 동일한 코드임에도 스프링/자바 버전이 달라 ExeTimeAspect 가 먼저 적용된 경우
+  ![스프링, 자바 버전에 따라 적용순서가 다른 AOP 예제_1](https://user-images.githubusercontent.com/43669379/182032155-c81577fb-18b0-4faa-967a-43ed3625ff9a.png)
+- 순서를 고정하려는 경우, @Aspect 클래스에 @Order 어노테이션을 설정하여 순서를 변경할 수 있다.
+```java
+@Order(1) // 적용 순서: @Order 붙은 Aspect -> 그 외 Aspect(스프링/자바 버전 영향받음)
+@Aspect
+public class CacheAspect {
+
+  private Map<Long, Object> cache = new HashMap<>();
+
+  @Pointcut("execution(public * com.study.kdy.chapter07.service..*(long))")
+  public void cacheTarget() {
+  }
+  
+  /* 이하 생략 */
+}
+```
+![스프링, 자바 버전에 따라 적용순서가 다른 AOP 예제_2](https://user-images.githubusercontent.com/43669379/182032108-263ffaf8-d349-410f-82f5-62a2787eeca3.png)
+
+### 7.4.3 @Around 의 Pointcut 설정과 @Pointcut 재사용
+- @Pointcut 메서드 없이 @Around 에서 pointcut 을 직접 설정할 수 있다.
+```java
+@Around("execution(public * com.study.kdy.chapter07.service..*(..))")
+```
+- 재사용성을 높이기 위해 @Pointcut 어노테이션으로 pointcut 메소드를 만들고 이를 다른 Advice 에서 재사용할 수 있다.
+```java
+@Aspect
+public class ExeTimeAspect {
+    /* 중략 */
+
+    // pointcut 직접 설정
+    @Around("execution(public * com.study.kdy.chapter07.service..*(..))")
+    public Object pointCutExpressionDirect(ProceedingJoinPoint joinPoint) throws Throwable {
+        var start = System.nanoTime();
+        try {
+            return joinPoint.proceed();
+        } finally {
+            var finish = System.nanoTime();
+            var sig = joinPoint.getSignature();
+            System.out.printf("[@Pointcut 생략]%s.%s(%s) 실행시간: %d ns\n", joinPoint.getTarget().getClass().getSimpleName(),
+                    sig.getName(), Arrays.toString(joinPoint.getArgs()), (finish - start));
+        }
+    }
+
+    @Around("CacheAspect.cacheTarget()") // 다른 Aspect 의 Pointcut
+    public Object cacheAspectPointcut(ProceedingJoinPoint joinPoint) throws Throwable {
+        var start = System.nanoTime();
+        try {
+            return joinPoint.proceed();
+        } finally {
+            var finish = System.nanoTime();
+            var sig = joinPoint.getSignature();
+            System.out.printf("[@CacheAspect 의 @Pointcut]%s.%s(%s) 실행시간: %d ns\n", joinPoint.getTarget().getClass().getSimpleName(),
+                    sig.getName(), Arrays.toString(joinPoint.getArgs()), (finish - start));
+        }
+    }
+
+}
+```
+![다른 클래스 @Pointcut 적용](https://user-images.githubusercontent.com/43669379/182032763-257188c6-567d-41df-8c22-d7a759b63937.png)
