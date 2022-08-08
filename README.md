@@ -58,7 +58,7 @@
 |5|컴포넌트 스캔|2022.07.11|김태수|https://lollolzkk.tistory.com/113?category=0|
 |6|빈 라이프사이클과 범위|2022.07.18|홍승훈|https://www.notion.so/Chapter-6-638f395120a24d7d9e7f1bc85d235579|
 |7|AOP 프로그래밍|2022.08.01|김동영|https://github.com/IDT-Spring-Study/Spring5-Practice/blob/5035cf90b1f264b14ebac228e40e66cb2a82f661/src/main/java/com/study/kdy/chapter07/7%EC%9E%A5_AOP_%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D.md|
-|8|DB 연동|2022.08.08|TBD|1~4/8장 발표|https://lollolzkk.tistory.com/117|
+|8|DB 연동|2022.08.08|김태수|https://lollolzkk.tistory.com/117|
 |8|DB 연동|2022.08.16|TBD|7/8장 발표|
 |9|스프링 MVC 시작하기|2022.08.22|TBD|광복절|
 |10|스프링 MVC 프레임워크 동작 방식|2022.08.29|TBD||
