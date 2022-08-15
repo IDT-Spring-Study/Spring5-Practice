@@ -210,3 +210,107 @@ public void insertTest() {
 }
 ```
 ![KeyHolder 예제](https://user-images.githubusercontent.com/43669379/183299723-59ec519d-b1b0-4a89-ab26-6a78203dbf93.png)
+
+# 8.7 트랜잭션 처리
+- 하나의 비즈니스 로직에서 여러 쿼리 실행 시, 일부 쿼리가 실패했을 때 성공한 쿼리는 롤백되어야 한다.
+- 이렇듯 관계된 여러 쿼리를 하나의 작업으로 묶어주는 것을 `트랜잭션` 이라고 한다.
+- 트랜잭션 내 일부 쿼리 실패 시, 성공 쿼리를 이전 상태로 되돌릴 수 있으며 이를 `롤백` 이라고 한다.
+- 트랜잭션 내 모든 쿼리 성공 시, 실제 DB에 반영하는 작업을 `커밋` 이라고 한다.
+- 트랜잭션 커밋/롤백 처리는 설정하기 나름이기 때문에 적용 범위 및 롤백 여부를 잘 설정해야 한다.
+
+### 8.7.1 @Transactional 을 이용한 트랜잭션 처리
+- 스프링에서는 @Transactional 을 통해 메소드 단위로 트랜잭션 처리를 할 수 있다.
+```java
+@Transactional
+public void changePassword(String email, String oldPwd, String newPwd) {
+    Member member = memberDao.selectByEmail(email);
+    if (member == null)
+        throw new MemberNotFoundException();
+
+    member.changePassword(oldPwd, newPwd);
+
+    memberDao.update(member);
+}
+```
+- 또한 위 어노테이션이 동작할 수 있도록 @EnableTransactionManagement 설정이 필요하다.
+```java
+@Configuration
+@EnableTransactionManagement // 설정 후 아래 트랜잭션 매니저 빈 등록
+public class AppCtx {
+
+    /* 중략 */
+
+    @Bean
+    public PlatformTransactionManager transactionManager() {
+        return new DataSourceTransactionManager(dataSource());
+    }
+
+}
+```
+![트랜잭션-성공-커밋](https://user-images.githubusercontent.com/43669379/184634013-4950a907-061c-4608-952e-b13b3238de5d.png)
+
+### 8.7.2 @Transactional과 프록시
+- 비즈니스 메소드에 어노테이션만으로 트랜잭션 처리를 하기 위해 스프링은 AOP 방식으로 트랜잭션을 구현한다.
+- 스프링은 AOP 를 프록시 객체를 통해 구현하기 때문에 @Transactional 또한 `프록시 방식으로 구현`된다.
+- @EnableTransactionManager 어노테이션 사용 시, 스프링은 @Transactional 선언된 빈 객체를 가져와 알맞은 프록시 객체를 생성한다.
+
+### 8.7.3 @Transactional 적용 메서드의 롤백 처리
+- 프록시를 통해 트랜잭션이 관리되기 때문에 롤백 역시 프록시 객체가 처리한다.
+```java
+public class WrongPasswordException extends RuntimeException {
+}
+```
+![트랜잭션-롤백](https://user-images.githubusercontent.com/43669379/184634629-327c428d-45db-4fcd-9d0b-347b4a8b4b2b.png)
+
+- 트랜잭션은 기본적으로 RuntimeException 발생 시에만 롤백한다.
+```java
+public class WrongPasswordException extends SQLException {
+}
+```
+![트랜잭션-커밋-RuntimeException아닐때](https://user-images.githubusercontent.com/43669379/184636336-a60042ea-1f7d-474d-9787-d64e233d1fec.png)
+
+- 롤백에 포함시키기 위해선 @Transactional 에 rollbackFor 설정을 추가하면 된다.
+  ![트랜잭션-롤백-클래스추가](https://user-images.githubusercontent.com/43669379/184637169-e9ed25f3-cb4c-46ba-a7fd-3c2ac3bd69e8.png)
+
+- 롤백 클래스를 포함시켜도, RuntimeException 은 기본값으로 항상 롤백 대상에 포함된다.
+```java
+public class WrongPasswordException extends RuntimeException {
+}
+```
+![트랜잭션-롤백-Runtime은항상포함](https://user-images.githubusercontent.com/43669379/184637506-fa47ca52-6684-40b9-a7a8-c89899889161.png)
+
+### 8.7.4 @Transactional의 주요 속성
+- 어노테이션의 주요 속성 중 하나는 Propagation(전파레벨) 이다.
+
+| 값            | 설명                                                                                               |
+|--------------|--------------------------------------------------------------------------------------------------|
+| REQUIRED     | 트랜잭션이 필요하다는 의미. <br/>트랜잭션이 존재하는 경우 해당 트랜잭션을 사용하며, 없는 경우 새로 생성한다.                                 |
+| MANDATORY    | 트랜잭션이 필요하다는 의미. <br/>기존 트랜잭션이 없는 경우, 예외를 발생시킨다.                                                  |
+| REQUIRES_NEW | 항상 새로운 트랜잭션 생성.<br/>기존 트랜잭션이 있는 경우, 일시중지시킨 뒤 새로운 트랜잭션이 종료되면 계속 진행된다.                             |
+| SUPPORTS     | 트랜잭션 없이 메서드 진행<br/>기존 트랜잭션이 있는 경우, 기존 트랜잭션을 같이 사용한다.                                             |
+| NOT_SUPPORTED | 트랜잭션없이 메서드 진행.<br/>기존 트랜잭션이 있는 경우, 중지시킨뒤 메서드 진행 후 트랜잭션을 다시 진행한다.                                 |
+| NEVER        | 트랜잭션 없이 메서드 진행.<br/>기존 트랜잭션이 있는 경우, 예외를 발생시킨다.                                                   |
+| NESTED       | 트랜잭션을 항상 생성한다.<br/>기존 트랜잭션이 있는 경우, 내부 트랜잭션을 만든 뒤 메서드를 실행한다.<br/>JDBC3.0 드라이버 등 버전에 따라 지원여부가 상이함. |
+
+- isolation(격리수준)
+
+| 값                | 설명                                                                  |
+|------------------|---------------------------------------------------------------------|
+| DEFAULT          | 기본 설정을 사용                                                           |
+| READ_UNCOMMITTED | 다른 트랜잭션이 커밋하지 않은 데이터 조회 가능                                          |
+| READ_COMMITTED   | 다른 트랜잭션이 커밋한 데이터 조회 가능                                              |
+| REPEATABLE_READ  | 트랜잭션 내 여러 차례 조회한 데이터는 동일한 값 조회 가능                                   |
+| SERIALIZABLE     | 동일한 데이터에 대해 하나의 트랜잭션만 설정 가능<br/>기존 트랜잭션 완료 전까지 해당 데이터에 모든 작업 진행 불가. |
+
+### 8.7.6 트랜잭션 전파
+- @Transactional 의 기본 전파레벨(Propagation) 은 REQUIRED
+```java
+	/**
+	 * The transaction propagation type.
+	 * <p>Defaults to {@link Propagation#REQUIRED}.
+	 * @see org.springframework.transaction.interceptor.TransactionAttribute#getPropagationBehavior()
+	 */
+	Propagation propagation() default Propagation.REQUIRED;
+```
+- 따라서 트랜잭션 내 트랜잭션이 설정된 경우, 전파레벨에 따라 트랜잭션은 다르게 생성/관리 된다.
+- JdbcTemplate 은 상위 트랜잭션이 존재할 경우, 해당 트랜잭션 범위 내에서 쿼리를 수행한다.

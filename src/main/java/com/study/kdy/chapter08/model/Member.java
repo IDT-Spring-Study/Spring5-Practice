@@ -1,6 +1,6 @@
 package com.study.kdy.chapter08.model;
 
-import com.study.main.chapter08.spring.WrongIdPasswordException;
+import com.study.kdy.chapter08.exception.WrongPasswordException;
 
 import java.time.LocalDateTime;
 
@@ -46,7 +46,7 @@ public class Member {
 
 	public void changePassword(String oldPassword, String newPassword) {
 		if (!password.equals(oldPassword))
-			throw new WrongIdPasswordException();
+			throw new WrongPasswordException();
 		this.password = newPassword;
 	}
 

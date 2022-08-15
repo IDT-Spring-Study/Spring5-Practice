@@ -1,14 +1,12 @@
 package com.study.kdy.chapter08.model;
 
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 
 import javax.sql.DataSource;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.List;
 
@@ -76,6 +74,10 @@ public class MemberDao {
 					member.setId(rs.getLong("ID"));
 					return member;
 				});
+	}
+
+	public void delete(Long id) {
+		jdbcTemplate.update("DELETE FROM MEMBER WHERE ID = ?", id);
 	}
 
 	public int count() {

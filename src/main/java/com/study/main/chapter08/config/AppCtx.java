@@ -15,8 +15,8 @@ public class AppCtx {
 	@Bean(destroyMethod = "close")
 	public DataSource dataSource() {
 		DataSource ds = new DataSource();
-		ds.setDriverClassName("com.mysql.jdbc.Driver");
-		ds.setUrl("jdbc:mysql://localhost/spring5-practice?characterEncoding=utf8");
+		ds.setDriverClassName("com.mysql.cj.jdbc.Driver");
+		ds.setUrl("jdbc:mysql://localhost/spring5fs?characterEncoding=utf8");
 		ds.setUsername("spring5");
 		ds.setPassword("spring5");
 		ds.setInitialSize(2);

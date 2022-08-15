@@ -3,6 +3,7 @@ package com.study.kdy.chapter08.model;
 import com.study.kdy.chapter08.config.DbConfig;
 import org.junit.jupiter.api.*;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 
@@ -15,9 +16,16 @@ public class MemberDaoTest {
 
     private MemberDao memberDao;
 
+    private Member insertedMember;
+
     @BeforeAll
     public void setup() {
         memberDao = new AnnotationConfigApplicationContext(DbConfig.class).getBean(MemberDao.class);
+    }
+
+    @AfterAll
+    public void clearData() {
+        memberDao.delete(insertedMember.getId());
     }
 
     @Order(1)
@@ -34,18 +42,19 @@ public class MemberDaoTest {
     }
 
     @Order(2)
+    @Transactional
     @Test
     public void insertTest() {
         // given
-        var member = new Member("email3", "pwd", "name", LocalDateTime.now());
+        var member = new Member("email7", "pwd", "name", LocalDateTime.now());
 
         // when
-        var result = memberDao.insert(member);
+        insertedMember = memberDao.insert(member);
 
         // then
-        assertThat(result.getClass()).isEqualTo(Member.class);
-        assertThat(result.getEmail()).isEqualTo(member.getEmail());
-        System.out.printf("inserted memberId: %d\n", result.getId());
+        assertThat(insertedMember.getClass()).isEqualTo(Member.class);
+        assertThat(insertedMember.getEmail()).isEqualTo(member.getEmail());
+        System.out.printf("inserted memberId: %d\n", insertedMember.getId());
     }
 
 }

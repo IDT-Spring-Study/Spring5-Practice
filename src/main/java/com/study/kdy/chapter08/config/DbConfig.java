@@ -1,6 +1,7 @@
 package com.study.kdy.chapter08.config;
 
 import com.study.kdy.chapter08.model.MemberDao;
+import com.study.kdy.chapter08.service.ChangePasswordService;
 import org.apache.tomcat.jdbc.pool.DataSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
