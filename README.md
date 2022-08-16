@@ -52,23 +52,23 @@
 
 |챕터|제목|발표일|발표자|발표 자료|
 |-|-|-|-|-|
-|3|스프링 DI|2022.06.20|김동영|https://github.com/IDT-Spring-Study/Spring5-Practice/issues/1|
-|3|스프링 DI|2022.06.27|박회재|https://cuboid-expert-37b.notion.site/Spring5-d4c1683f9c8f4cf0b68792ab1f608b64|
-|4|의존 자동 주입|2022.07.04|홍승훈|https://www.notion.so/Chapter-4-631fa59be76a4c6cb918e40da7f9d77e|
-|5|컴포넌트 스캔|2022.07.11|김태수|https://lollolzkk.tistory.com/113?category=0|
-|6|빈 라이프사이클과 범위|2022.07.18|홍승훈|https://www.notion.so/Chapter-6-638f395120a24d7d9e7f1bc85d235579|
-|7|AOP 프로그래밍|2022.08.01|김동영|https://github.com/IDT-Spring-Study/Spring5-Practice/blob/5035cf90b1f264b14ebac228e40e66cb2a82f661/src/main/java/com/study/kdy/chapter07/7%EC%9E%A5_AOP_%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D.md|
-|8|DB 연동|2022.08.08|김태수|https://lollolzkk.tistory.com/117|
-|8|DB 연동|2022.08.16|박회재|[박회재_노션_발표자료](https://cuboid-expert-37b.notion.site/Transaction-61ee1ad067004cca90ea04c41fea7a7f),&nbsp;[김동영_깃허브_강의자료](https://github.com/IDT-Spring-Study/Spring5-Practice/blob/775ec96a95df4db83acf4d58e8ee412cfd268c73/src/main/java/com/study/kdy/chapter08/8%EC%9E%A5_DB_%EC%97%B0%EB%8F%99.md)|
-|9|스프링 MVC 시작하기|2022.08.22|TBD|광복절|
+|3|스프링 DI|2022.06.20|김동영|[김동영_깃허브_발표자료](https://github.com/IDT-Spring-Study/Spring5-Practice/issues/1)|
+|3|스프링 DI|2022.06.27|박회재|[박회재_노션_발표자료](https://cuboid-expert-37b.notion.site/Spring5-d4c1683f9c8f4cf0b68792ab1f608b64)|
+|4|의존 자동 주입|2022.07.04|홍승훈|[홍승훈_노션_발표자료](https://www.notion.so/Chapter-4-631fa59be76a4c6cb918e40da7f9d77e)|
+|5|컴포넌트 스캔|2022.07.11|김태수|[김태수_티스토리_발표자료](https://lollolzkk.tistory.com/113?category=0)|
+|6|빈 라이프사이클과 범위|2022.07.18|홍승훈|[홍승훈_노션_발표자료](https://www.notion.so/Chapter-6-638f395120a24d7d9e7f1bc85d235579)|
+|7|AOP 프로그래밍|2022.08.01|김동영|[김동영_깃허브_발표자료](https://github.com/IDT-Spring-Study/Spring5-Practice/blob/5035cf90b1f264b14ebac228e40e66cb2a82f661/src/main/java/com/study/kdy/chapter07/7%EC%9E%A5_AOP_%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D.md)|
+|8|DB 연동|2022.08.08|김태수|[김태수_티스토리_발표자료](https://lollolzkk.tistory.com/117)|
+|8|DB 연동|2022.08.16|박회재|[박회재_노션_발표자료](https://cuboid-expert-37b.notion.site/Transaction-61ee1ad067004cca90ea04c41fea7a7f),&nbsp;[김동영_깃허브_발표자료](https://github.com/IDT-Spring-Study/Spring5-Practice/blob/775ec96a95df4db83acf4d58e8ee412cfd268c73/src/main/java/com/study/kdy/chapter08/8%EC%9E%A5_DB_%EC%97%B0%EB%8F%99.md)|
+|9|스프링 MVC 시작하기|2022.08.22|TBD||
 |10|스프링 MVC 프레임워크 동작 방식|2022.08.29|TBD||
-|11|MVC 1: 요청 매핑, 커멘드 객체, 리다이렉트, 폼 태그, 모델|2022.09.05|TBD|1~10/14장 발표|
-|11|MVC 1: 요청 매핑, 커멘드 객체, 리다이렉트, 폼 태그, 모델|2022.09.12|TBD|11~14/14장 발표|
-|12|MVC 2: 메시지, 커맨드 객체 검증|2022.09.19|TBD|추석|
+|11|MVC 1: 요청 매핑, 커멘드 객체,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;리다이렉트, 폼 태그, 모델|2022.09.05|TBD|1~10/14장 발표|
+|11|MVC 1: 요청 매핑, 커멘드 객체,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;리다이렉트, 폼 태그, 모델|2022.09.12|TBD|11~14/14장 발표, 추석|
+|12|MVC 2: 메시지, 커맨드 객체 검증|2022.09.19|TBD||
 |13|MVC 3: 세션, 인터셉터, 쿠키|2022.09.26|TBD||
-|14|MVC 4: 날짜 값 변환, @PathVariable, 익셉션 처리|2022.10.03|TBD||
-|15|간단한 웹 어플리케이션의 구조|2022.10.10|TBD|7장이라 내용 보충 필요. 개천절|
-|16|JSON 응답과 요청 처리|2022.10.17|TBD|대체공휴일(한글날)|
+|14|MVC 4: 날짜 값 변환, @PathVariable, 익셉션 처리|2022.10.03|TBD|개천절|
+|15|간단한 웹 어플리케이션의 구조|2022.10.10|TBD|7장이라 내용 보충 필요. 대체공휴일(한글날)|
+|16|JSON 응답과 요청 처리|2022.10.17|TBD||
 |17|프로필과 프로퍼티 파일|2022.10.24|TBD|발표자 선정 후 발표여부 확인 필요.|
 
 ### 참고
