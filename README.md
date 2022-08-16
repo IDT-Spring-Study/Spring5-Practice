@@ -59,7 +59,7 @@
 |6|빈 라이프사이클과 범위|2022.07.18|홍승훈|https://www.notion.so/Chapter-6-638f395120a24d7d9e7f1bc85d235579|
 |7|AOP 프로그래밍|2022.08.01|김동영|https://github.com/IDT-Spring-Study/Spring5-Practice/blob/5035cf90b1f264b14ebac228e40e66cb2a82f661/src/main/java/com/study/kdy/chapter07/7%EC%9E%A5_AOP_%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D.md|
 |8|DB 연동|2022.08.08|김태수|https://lollolzkk.tistory.com/117|
-|8|DB 연동|2022.08.16|박회재|https://cuboid-expert-37b.notion.site/Transaction-61ee1ad067004cca90ea04c41fea7a7f|
+|8|DB 연동|2022.08.16|박회재|[박회재_노션_발표자료](https://cuboid-expert-37b.notion.site/Transaction-61ee1ad067004cca90ea04c41fea7a7f),&nbsp;[김동영_깃허브_강의자료](https://github.com/IDT-Spring-Study/Spring5-Practice/blob/775ec96a95df4db83acf4d58e8ee412cfd268c73/src/main/java/com/study/kdy/chapter08/8%EC%9E%A5_DB_%EC%97%B0%EB%8F%99.md)|
 |9|스프링 MVC 시작하기|2022.08.22|TBD|광복절|
 |10|스프링 MVC 프레임워크 동작 방식|2022.08.29|TBD||
 |11|MVC 1: 요청 매핑, 커멘드 객체, 리다이렉트, 폼 태그, 모델|2022.09.05|TBD|1~10/14장 발표|
