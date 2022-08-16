@@ -56,7 +56,7 @@ public class ChangePasswordServiceTest {
     @Test
     public void 비밀번호변경_실패_기존번호다름() {
         // given
-        var newPassword = "newPassword";
+        var newPassword = "newPassword2";
 
         // when
         assertThrows(WrongPasswordException.class,
