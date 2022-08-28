@@ -123,5 +123,25 @@ public class TransactionMemberDaoServiceTest {
         assertThat(selectedMember).isNull();
     }
 
+    @Order(5)
+    @Test
+    public void insertExceptionTest() {
+        // given
+        var reqDto = MemberInsertReqDto.builder()
+                .email("email")
+                .password("password")
+                .name("name")
+                .registerDateTime(LocalDateTime.now())
+                .build();
+
+        // when
+        insertedMember = transactionMemberDaoService.insertException(reqDto);
+
+        // then
+        assertThat(insertedMember.getEmail()).isEqualTo(reqDto.getEmail());
+        assertThat(insertedMember.getPassword()).isEqualTo(reqDto.getPassword());
+        assertThat(insertedMember.getName()).isEqualTo(reqDto.getName());
+    }
+
 }
 

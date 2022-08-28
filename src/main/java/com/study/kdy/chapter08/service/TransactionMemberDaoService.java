@@ -37,4 +37,15 @@ public class TransactionMemberDaoService {
         memberDao.delete(id);
     }
 
+    @Transactional
+    public Member insertException(MemberInsertReqDto reqDto) {
+        try {
+            insertOrThrow(reqDto, true);
+        } catch (RuntimeException e) {
+            System.out.printf("failed! %s", e.getMessage());
+        }
+
+        return memberDao.insert(reqDto.toEntity());
+    }
+
 }
