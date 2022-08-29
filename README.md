@@ -60,8 +60,8 @@
 |7|AOP 프로그래밍|2022.08.01|김동영|[김동영_깃허브_발표자료](https://github.com/IDT-Spring-Study/Spring5-Practice/blob/5035cf90b1f264b14ebac228e40e66cb2a82f661/src/main/java/com/study/kdy/chapter07/7%EC%9E%A5_AOP_%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D.md)|
 |8|DB 연동|2022.08.08|김태수|[김태수_티스토리_발표자료](https://lollolzkk.tistory.com/117)|
 |8|DB 연동|2022.08.16|박회재|[박회재_노션_발표자료](https://cuboid-expert-37b.notion.site/Transaction-61ee1ad067004cca90ea04c41fea7a7f),&nbsp;[김동영_깃허브_발표자료](https://github.com/IDT-Spring-Study/Spring5-Practice/blob/775ec96a95df4db83acf4d58e8ee412cfd268c73/src/main/java/com/study/kdy/chapter08/8%EC%9E%A5_DB_%EC%97%B0%EB%8F%99.md)|
-|9|스프링 MVC 시작하기|2022.08.22|TBD||
-|10|스프링 MVC 프레임워크 동작 방식|2022.08.29|홍승훈||
+|9|스프링 MVC 시작하기|2022.08.22|홍승훈||
+|10|스프링 MVC 프레임워크 동작 방식|2022.08.29|김동영|[김동영_깃허브_발표자료](https://github.com/IDT-Spring-Study/Spring5-Practice/blob/9250f7e121d337f330c547d14f085ca79f44bd96/src/main/java/com/study/kdy/chapter10/10%EC%9E%A5_%EC%8A%A4%ED%94%84%EB%A7%81_MVC_%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC_%EB%8F%99%EC%9E%91_%EB%B0%A9%EC%8B%9D.md)|
 |11|MVC 1: 요청 매핑, 커멘드 객체,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;리다이렉트, 폼 태그, 모델|2022.09.06|TBD|1~10/14장 발표|
 |11|MVC 1: 요청 매핑, 커멘드 객체,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;리다이렉트, 폼 태그, 모델|2022.09.12|TBD|11~14/14장 발표, 추석|
 |12|MVC 2: 메시지, 커맨드 객체 검증|2022.09.19|TBD||
