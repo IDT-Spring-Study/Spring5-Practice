@@ -20,8 +20,8 @@
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
 			<param-value>
-				com.study.main.chapter10.config.MvcConfig
-				com.study.main.chapter10.config.ControllerConfig
+				com.study.main.chapter10.com.study.main.chapter11.com.study.main.chapter12.com.study.main.chapter13.com.study.main.chapter14.com.study.main.chapter16.com.study.main.chapter17.config.MvcConfig
+				com.study.main.chapter10.com.study.main.chapter11.com.study.main.chapter12.com.study.main.chapter13.com.study.main.chapter14.com.study.main.chapter16.com.study.main.chapter17.config.ControllerConfig
 			</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>

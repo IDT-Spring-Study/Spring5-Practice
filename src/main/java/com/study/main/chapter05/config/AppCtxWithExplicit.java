@@ -11,7 +11,7 @@ import com.study.main.chapter05.spring.MemberSummaryPrinter;
 import com.study.main.chapter05.spring.VersionPrinter;
 
 @Configuration
-@ComponentScan(basePackages = {"spring"})
+@ComponentScan(basePackages = {"com/study/main/chapter11/spring"})
 public class AppCtxWithExplicit {
 
 	@Bean

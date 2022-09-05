@@ -10,10 +10,10 @@
 ```java
 package spring;
 
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.study.main.chapter11.spring.Member;
 import org.springframework.stereotype.Component;
 
 import config.ManualBean;
@@ -22,29 +22,28 @@ import config.ManualBean;
 @Component
 public class MemberDao {
 
-	private static long nextId = 0;
+    private static long nextId = 0;
 
-	private Map<String, Member> map = new HashMap<>();
+    private Map<String, Member> map = new HashMap<>();
 
-	public Member selectByEmail(String email) {
-		return map.get(email);
-	}
-... 생략
+    public Member selectByEmail(String email) {
+        return map.get(email);
+    }
+...생략
 }
 ```
 
 ```java
 package spring;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+import com.study.main.chapter11.spring.MemberDao;
 import org.springframework.stereotype.Component;
 
 @Component("infoPrinter")
 public class MemberInfoPrinter {
 
-	private MemberDao memDao;
-	private MemberPrinter printer;
+    private MemberDao memDao;
+    private MemberPrinter printer;
 ```
 
 ## 2.@ComponentScan 어노테이션으로 스캔 설정
@@ -66,28 +65,28 @@ import spring.MemberSummaryPrinter;
 import spring.VersionPrinter;
 
 @Configuration
-@ComponentScan(basePackages = {"spring"})
+@ComponentScan(basePackages = {"com/study/main/chapter11/spring"})
 public class AppCtx {
 
-	@Bean
-	@Qualifier("printer")
-	public MemberPrinter memberPrinter1() {
-		return new MemberPrinter();
-	}
-	
-	@Bean
-	@Qualifier("summaryPrinter")
-	public MemberSummaryPrinter memberPrinter2() {
-		return new MemberSummaryPrinter();
-	}
-	
-	@Bean
-	public VersionPrinter versionPrinter() {
-		VersionPrinter versionPrinter = new VersionPrinter();
-		versionPrinter.setMajorVersion(5);
-		versionPrinter.setMinorVersion(0);
-		return versionPrinter;
-	}
+    @Bean
+    @Qualifier("printer")
+    public MemberPrinter memberPrinter1() {
+        return new MemberPrinter();
+    }
+
+    @Bean
+    @Qualifier("summaryPrinter")
+    public MemberSummaryPrinter memberPrinter2() {
+        return new MemberSummaryPrinter();
+    }
+
+    @Bean
+    public VersionPrinter versionPrinter() {
+        VersionPrinter versionPrinter = new VersionPrinter();
+        versionPrinter.setMajorVersion(5);
+        versionPrinter.setMinorVersion(0);
+        return versionPrinter;
+    }
 }
 ```
 
@@ -97,40 +96,42 @@ public class AppCtx {
 
 ```java
 @Configuration
-@ComponentScan(basePackages = {"spring"}, 
-	excludeFilters = { 
-			@Filter(type = FilterType.REGEX, pattern= "spring\\..*Dao"))			
+@ComponentScan(basePackages = {"com/study/main/chapter11/spring"},
+        excludeFilters = {
+                @Filter(type = FilterType.REGEX, pattern = "spring\\..*Dao"))			
 })
+
 public class AppCtxWithExclude {
-	@Bean
-	public MemberDao memberDao() {
-		return new MemberDao();
-	}
-	
-	@Bean
-	@Qualifier("printer")
-	public MemberPrinter memberPrinter1() {
-		return new MemberPrinter();
-	}
+    @Bean
+    public MemberDao memberDao() {
+        return new MemberDao();
+    }
+
+    @Bean
+    @Qualifier("printer")
+    public MemberPrinter memberPrinter1() {
+        return new MemberPrinter();
+    }
 ```
 
 ```java
 @Configuration
-@ComponentScan(basePackages = {"spring"}, 
-	excludeFilters = { 
-			@Filter(type = FilterType.ASPECTJ, pattern= "spring\\..*Dao"))			
+@ComponentScan(basePackages = {"com/study/main/chapter11/spring"},
+        excludeFilters = {
+                @Filter(type = FilterType.ASPECTJ, pattern = "spring\\..*Dao"))			
 })
+
 public class AppCtxWithExclude {
-	@Bean
-	public MemberDao memberDao() {
-		return new MemberDao();
-	}
-	
-	@Bean
-	@Qualifier("printer")
-	public MemberPrinter memberPrinter1() {
-		return new MemberPrinter();
-	}
+    @Bean
+    public MemberDao memberDao() {
+        return new MemberDao();
+    }
+
+    @Bean
+    @Qualifier("printer")
+    public MemberPrinter memberPrinter1() {
+        return new MemberPrinter();
+    }
 ```
 
 ```java
@@ -146,16 +147,17 @@ public @interface ManualBean {
 ```
 
 ```java
+
 @Configuration
-@ComponentScan(basePackages = {"spring", "spring2" }, 
-	excludeFilters = { 
-			@Filter(type = FilterType.ANNOTATION, classes = ManualBean.class )			
-})
+@ComponentScan(basePackages = {"com/study/main/chapter11/spring", "spring2"},
+        excludeFilters = {
+                @Filter(type = FilterType.ANNOTATION, classes = ManualBean.class)
+        })
 public class AppCtxWithExclude {
-	@Bean
-	public MemberDao memberDao() {
-		return new MemberDao();
-	}
+    @Bean
+    public MemberDao memberDao() {
+        return new MemberDao();
+    }
 ```
 
 ## 4. 기본 스캔 대상
@@ -191,17 +193,17 @@ public class AppCtxWithExclude {
     
     - 컴포넌트 스캔 시 크게 빈 이름 충돌과 수동 등록에 따른 충돌이 발생할 수 있다.
     - 이럴 경우 명시적으로 빈 이름을 지정해서 이름 충돌을 피해야 함
-    
+
     ```java
     @Component
     public class MemberDao {
     ...
     }
     ```
-    
+
     ```java
     @Configuration
-    @componentScan(basePackages = {"spring"})
+    @componentScan(basePackages = {"com/study/main/chapter11/spring"})
     public class AppCtx {
     
     	@Bean
