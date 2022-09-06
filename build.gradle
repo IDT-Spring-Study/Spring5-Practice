@@ -36,6 +36,12 @@ dependencies {
     implementation 'javax.servlet:jstl:1.2'
     implementation 'org.springframework:spring-webmvc:5.3.20'
 
+    /* 16장 */
+    implementation 'org.hibernate:hibernate-validator:5.4.2.Final'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.9.4'
+    implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.9.4'
+    implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.9.4'
+
     // Lombok Compile
     compileOnly 'org.projectlombok:lombok:1.18.24'
     annotationProcessor 'org.projectlombok:lombok:1.18.24'
