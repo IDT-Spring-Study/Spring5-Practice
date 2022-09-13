@@ -63,11 +63,11 @@
 |9|스프링 MVC 시작하기|2022.08.22|홍승훈|[홍승훈_노션_발표자료](https://www.notion.so/Chapter-9-MVC-49e600d40998401b83b1376f83f3da89)|
 |10|스프링 MVC 프레임워크 동작 방식|2022.08.29|김동영|[김동영_깃허브_발표자료](https://github.com/IDT-Spring-Study/Spring5-Practice/blob/9250f7e121d337f330c547d14f085ca79f44bd96/src/main/java/com/study/kdy/chapter10/10%EC%9E%A5_%EC%8A%A4%ED%94%84%EB%A7%81_MVC_%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC_%EB%8F%99%EC%9E%91_%EB%B0%A9%EC%8B%9D.md)|
 |11|MVC 1: 요청 매핑, 커멘드 객체,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;리다이렉트, 폼 태그, 모델|2022.09.06|홍승훈|[김동영_깃허브_발표자료](https://github.com/IDT-Spring-Study/Spring5-Practice/blob/main/src/main/java/com/study/kdy/chapter11/11%EC%9E%A5_MVC1_%EC%9A%94%EC%B2%AD%EB%A7%A4%ED%95%91_%EC%BB%A4%EB%A7%A8%EB%93%9C%EA%B0%9D%EC%B2%B4_%EB%A6%AC%EB%8B%A4%EC%9D%B4%EB%A0%89%ED%8A%B8_%ED%8F%BC%ED%83%9C%EA%B7%B8_%EB%AA%A8%EB%8D%B8.md),[홍승훈_노션_발표자료](https://www.notion.so/Chapter-11-MVC1-d52baa3bd13947a2b39bbfebab6cef14.md)|
-|11|MVC 1: 요청 매핑, 커멘드 객체,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;리다이렉트, 폼 태그, 모델|2022.09.12|TBD|11~14/14장 발표, 추석|
+|11|MVC 1: 요청 매핑, 커멘드 객체,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;리다이렉트, 폼 태그, 모델|2022.09.13|홍승훈|[김동영_깃허브_발표자료](https://github.com/IDT-Spring-Study/Spring5-Practice/blob/main/src/main/java/com/study/kdy/chapter11/11%EC%9E%A5_MVC1_%EC%9A%94%EC%B2%AD%EB%A7%A4%ED%95%91_%EC%BB%A4%EB%A7%A8%EB%93%9C%EA%B0%9D%EC%B2%B4_%EB%A6%AC%EB%8B%A4%EC%9D%B4%EB%A0%89%ED%8A%B8_%ED%8F%BC%ED%83%9C%EA%B7%B8_%EB%AA%A8%EB%8D%B8.md#1111-%EC%A3%BC%EC%9A%94-%EC%97%90%EB%9F%AC-%EB%B0%9C%EC%83%9D-%EC%83%81%ED%99%A9)|
 |12|MVC 2: 메시지, 커맨드 객체 검증|2022.09.19|TBD||
 |13|MVC 3: 세션, 인터셉터, 쿠키|2022.09.26|TBD||
-|14|MVC 4: 날짜 값 변환, @PathVariable, 익셉션 처리|2022.10.03|TBD|개천절|
-|15|간단한 웹 어플리케이션의 구조|2022.10.10|TBD|7장이라 내용 보충 필요. 대체공휴일(한글날)|
+|14|MVC 4: 날짜 값 변환, @PathVariable, 익셉션 처리|2022.10.04|TBD|개천절 다음날|
+|15|간단한 웹 어플리케이션의 구조|2022.10.11|TBD|7장이라 내용 보충 필요. 대체공휴일 다음날|
 |16|JSON 응답과 요청 처리|2022.10.17|TBD||
 |17|프로필과 프로퍼티 파일|2022.10.24|TBD|발표자 선정 후 발표여부 확인 필요.|
 
